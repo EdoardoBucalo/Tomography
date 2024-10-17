@@ -54,7 +54,7 @@ def maximum_los():
     maximum number of lines of sight in the database
     '''
     # Maximum number of lines of sight
-    dir = "/Users/edoardo/Desktop/Thesis/sav_files"
+    dir =  "/content/drive/MyDrive/Colab Notebooks/sav_files"
 
     n_max = 0
     for file in os.listdir(dir):
@@ -92,7 +92,8 @@ def discriminate_data(x, y, yerr):
         return False
 
 def read_tomography(file): 
-    dir = "/Users/edoardo/Desktop/Thesis/sav_files"
+    dir = "/content/drive/MyDrive/Colab Notebooks/sav_files"
+  
     # Load the data from the .sav file
     try:
         datum = readsav(dir + file)
@@ -202,7 +203,7 @@ def augment_data(logical_array, prel_array, data_array, error_array):
 
 
 def get_coefficients(file):
-    dir = "/Users/edoardo/Desktop/Thesis/sav_files"
+    dir = "/content/drive/MyDrive/Colab Notebooks/sav_files"
     filename = os.join(dir, file)
     data = np.load(filename)
     # Now I have to compute the coefficients for each time instant in the .npy file
@@ -217,7 +218,7 @@ def create_db():
     directory and saves them in a .npy file named data.npy
     '''
     data_dir = config.DATA_DIR
-    dir = "/Users/edoardo/Desktop/Thesis/sav_files"
+    dir =  "/content/drive/MyDrive/Colab Notebooks/sav_files"
     file = config.FILE_NAME
     if os.path.exists(data_dir + file):
         return 
