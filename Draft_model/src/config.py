@@ -11,6 +11,6 @@ FILE_NAME = 'data_clean.npy'
 NUM_WORKERS = 8
 
 # Compute related
-ACCELERATOR = 'gpu'
-DEVICES = [0]
+ACCELERATOR = 'cpu'
+DEVICES = 1
 PRECISION = '16-mixed'
