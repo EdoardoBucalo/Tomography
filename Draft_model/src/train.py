@@ -15,6 +15,7 @@ def main():
         inputsize=config.INPUTSIZE,
         learning_rate=config.LEARNING_RATE,
         outputsize=config.OUTPUTSIZE,
+        optimizer_name=config.OPTIMIZER
     )
 
     dm = TomographyDataModule(
