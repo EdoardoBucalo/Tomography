@@ -4,7 +4,7 @@ OUTPUTSIZE = 21
 LEARNING_RATE = 3e-4
 BATCH_SIZE = 64
 NUM_EPOCHS = 100
-OPTIMIZER='adam'#puoi scegliere tra:{'Adam','sgd','adamw','rmsprop'}
+OPTIMIZER='sgd'#puoi scegliere tra:{'Adam','sgd','adamw','rmsprop'}
 
 # Dataset
 DATA_DIR = '../data/'
