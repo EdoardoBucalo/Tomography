@@ -6,7 +6,7 @@ import torchmetrics
 import lightning as L
 import torchvision
 from torchmetrics import R2Score
-from torchmetrics import D2Score
+
 
 
 class TomoModel(L.LightningModule):
@@ -26,8 +26,8 @@ class TomoModel(L.LightningModule):
     self.best_val_loss = torch.tensor(float('inf'))  # Initialize the best validation loss
     self.mae = torchmetrics.MeanAbsoluteError() # Define Root Mean Squared Error metric
     self.md = torchmetrics.MinkowskiDistance(p=4)  # Define F1 score metric
-    self.r2 = R2Score()#R2 metric
-    self.d2 = D2Score()#D2 metric
+    self.r2 = torchmetrics.R2Score()#R2 metric
+    
     self.training_step_outputs = []  # Initialize an empty list to store training step outputs
     
 
@@ -45,8 +45,7 @@ class TomoModel(L.LightningModule):
     self.log_dict({'train_loss': loss,
                    'train_mae': mae,
                    'train_md': md,
-                   'train_r2': r2,
-                   'train_d2': d2},
+                   'train_r2': r2},
                    on_step=False, on_epoch=True, prog_bar=True
                    )  # Log the training loss, mae, and F1 score
     return {"loss": loss, "preds": y_hat, "target": y}
@@ -61,8 +60,7 @@ class TomoModel(L.LightningModule):
     self.log_dict({'val_loss': loss,
                    'val_mae': mae,
                    'val_md': md,
-                   'val_r2': r2,
-                   'val_d2': d2},
+                   'val_r2': r2},
                    on_step=False, on_epoch=True, prog_bar=True
                    )  # Log the validation loss, mae, and F1 score
     return loss
@@ -76,8 +74,7 @@ class TomoModel(L.LightningModule):
     self.log_dict({'test_loss': loss,
                    'test_mae': mae,
                    'test_md': md,
-                   'test_r2': r2,
-                   'test_d2': d2},
+                   'test_r2': r2},
                    on_step=False, on_epoch=True, prog_bar=True
                    )  # Log the test loss, mae, and F1 score
     return loss
