@@ -40,7 +40,7 @@ class TomoModel(L.LightningModule):
     mae = self.mae(y_hat, y)  # Compute mae using the y_hat (prediction) and target
     md = self.md(y_hat, y)  # Compute F1 score using the y_hat (prediction) and target
     r2 = self.r2(y_hat, y)
-    d2 = self.d2(y_hat, y)
+  
     self.training_step_outputs.append(loss)  # Append the loss to the training step outputs list
     self.log_dict({'train_loss': loss,
                    'train_mae': mae,
@@ -56,7 +56,7 @@ class TomoModel(L.LightningModule):
     mae = self.mae(y_hat, y)  # Compute mae using the y_hat (prediction) and target
     md = self.md(y_hat, y)  # Compute F1 score using the y_hat (prediction) and target
     r2 = self.r2(y_hat, y)
-    d2 = self.d2(y_hat, y)
+   
     self.log_dict({'val_loss': loss,
                    'val_mae': mae,
                    'val_md': md,
@@ -70,7 +70,7 @@ class TomoModel(L.LightningModule):
     mae = self.mae(y_hat, y)  # Compute mae using the y_hat (prediction) and target
     md = self.md(y_hat, y)  # Compute F1 score using the y_hat (prediction) and target
     r2 = self.r2(y_hat, y)
-    d2 = self.d2(y_hat, y)
+    
     self.log_dict({'test_loss': loss,
                    'test_mae': mae,
                    'test_md': md,
