@@ -13,6 +13,8 @@ class TomoModel(L.LightningModule):
   def __init__(self, inputsize, learning_rate, outputsize,optimizer_name):
     super().__init__()
     self.lr = learning_rate
+    self.optimizer_name = optimizer_name  # Aggiungi questo attributo
+
     self.net = nn.Sequential(
         nn.Linear(inputsize, 128),  # Define a linear layer with input size and output size
         nn.ReLU(),  # Apply ReLU activation function
