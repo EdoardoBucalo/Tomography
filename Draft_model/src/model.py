@@ -26,8 +26,8 @@ class TomoModel(L.LightningModule):
     self.best_val_loss = torch.tensor(float('inf'))  # Initialize the best validation loss
     self.mae = torchmetrics.MeanAbsoluteError() # Define Root Mean Squared Error metric
     self.md = torchmetrics.MinkowskiDistance(p=4)  # Define F1 score metric
-    self.r2 = torchmetrics.R2Score()#R2 metric
-    self.d2 = torchmetrics.D2Score()#D2 metric
+    self.r2 = R2Score()#R2 metric
+    self.d2 = D2Score()#D2 metric
     self.training_step_outputs = []  # Initialize an empty list to store training step outputs
     
 
