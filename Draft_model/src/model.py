@@ -5,6 +5,8 @@ import torch.optim as optim
 import torchmetrics
 import lightning as L
 import torchvision
+from torchmetrics import R2Score
+from torchmetrics import D2Score
 
 
 class TomoModel(L.LightningModule):
