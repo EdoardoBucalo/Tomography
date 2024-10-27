@@ -60,3 +60,41 @@ class TomographyDataModule(L.LightningDataModule):
     '''
     # Generate the dataset if it does not exist yet
     c_db.create_db()
+
+  def setup(self, stage=None):
+    '''
+    The setup method is called before the dataloaders are created. Its main 
+    purpose is to:
+    - Load the dataset from the data directory. ()
+    - Specifically load only the brilliance and 
+    - split the dataset into training, validation, and test sets.
+    '''
+    # Load the dataset
+    entire_dataset = TomographyDataset(self.data_dir, self.file_name)
+    # Split the dataset into train, validation, and test sets
+    generator = torch.Generator().manual_seed(42) # Seed for reproducibility
+    # Here the actual split takes place, 80% for training, 10% for validation, and 10% for testing
+    self.train_ds, self.val_ds, self.test_ds = random_split(entire_dataset,
+                                              [0.8, 0.1, 0.1],
+                                              generator=generator)
+
+  def train_dataloader(self):
+    # Return the train dataloader
+    return DataLoader(self.train_ds,
+                      batch_size=self.batch_size,
+                      num_workers=self.num_workers,
+                      shuffle=True)
+
+  def val_dataloader(self):
+    # Return the validation dataloader
+    return DataLoader(self.val_ds,
+                      batch_size=self.batch_size,
+                      num_workers=self.num_workers,
+                      shuffle=False)
+
+  def test_dataloader(self):
+    # Return the test dataloader
+    return DataLoader(self.test_ds,
+                      batch_size=self.batch_size,
+                      num_workers=self.num_workers,
+                      shuffle=False)
