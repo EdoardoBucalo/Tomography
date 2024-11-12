@@ -9,20 +9,18 @@ import utils
 
 
 class TomoModel(L.LightningModule):
-  def __init__(self, inputsize, learning_rate, outputsize,fc_layer_size=128):
+  def __init__(self, inputsize, learning_rate, outputsize):
     super().__init__()
     self.lr = learning_rate
-    self.fc_layer_size = fc_layer_size  # Aggiungi il parametro per la dimensione del layer fully-connected
-
     #self.layersize = 512
     self.net = nn.Sequential(
-        nn.Linear(inputsize, fc_layer_size),  # Define a linear layer with input size and output size
+        nn.Linear(inputsize, 128),  # Define a linear layer with input size and output size
         nn.ReLU(),  # Apply ReLU activation function
-        nn.Linear(fc_layer_size, fc_layer_size),  # Define another linear layer
+        nn.Linear(128, 128),  # Define another linear layer
         nn.ReLU(),  # Apply ReLU activation function
-        nn.Linear(fc_layer_size, fc_layer_size),  # Define another linear layer
+        nn.Linear(128, 128),  # Define another linear layer
         nn.ReLU(),  # Apply ReLU activation function
-        nn.Linear(fc_layer_size, outputsize)  # Define Final linear layer with output size
+        nn.Linear(128, outputsize)  # Define Final linear layer with output size
     )
     self.loss_rate = 0.2  # Define the loss rate
     self.loss_fn = nn.MSELoss()  # Define the loss function as CrossEntropyLoss
@@ -80,14 +78,13 @@ class TomoModel(L.LightningModule):
   def _common_step(self, batch, batch_idx):
     x, y = batch[0], batch[1]
     y_hat = self(x)  # Compute the y_hat (prediction) by passing the input through the network
-   #em, em_hat = self.calc_em(batch, y_hat) # Compute the tomography map using the coefficients
+    em, em_hat = self.calc_em(batch, y_hat) # Compute the tomography map using the coefficients
     
     # The following lines are used to set the value of the loss_rate variable (0.2)
     # print(f"MSE on the coefficients vector: {self.loss_fn(y_hat, y)}")
     # print(f"MSE on the emissivity maps: {self.loss_fn(em_hat, em)}")
 
-    #loss = ((1 - self.loss_rate) * self.loss_fn(y_hat, y)) + (self.loss_rate * self.loss_fn(em_hat, em))  # Compute the loss using the y_hat (prediction) and target
-    loss = self.loss_fn(y_hat, y)
+    loss = ((1 - self.loss_rate) * self.loss_fn(y_hat, y)) + (self.loss_rate * self.loss_fn(em_hat, em))  # Compute the loss using the y_hat (prediction) and target
     return loss, y_hat, y
   
   def predict_step(self, batch, batch_idx):

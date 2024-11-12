@@ -41,7 +41,7 @@ class TomographyDataset(torch.utils.data.Dataset):
     return len(self.data)
 
   def __getitem__(self, idx):
-    return self.data[idx], self.target[idx], self.j0, self.j1, self.em, self.em_hat, self.radii, self.angles
+    return self.data[idx], self.target[idx]#, self.j0, self.j1, self.em, self.em_hat, self.radii, self.angles
 
 class TomographyDataModule(L.LightningDataModule):
   def __init__(self, data_dir, file_name, batch_size, num_workers=4):
@@ -83,18 +83,22 @@ class TomographyDataModule(L.LightningDataModule):
     return DataLoader(self.train_ds,
                       batch_size=self.batch_size,
                       num_workers=self.num_workers,
-                      shuffle=True)
+                      shuffle=True,
+                      pin_memory=True)
 
   def val_dataloader(self):
     # Return the validation dataloader
     return DataLoader(self.val_ds,
                       batch_size=self.batch_size,
                       num_workers=self.num_workers,
-                      shuffle=False)
+                      shuffle=False,
+                      pin_memory=True)
 
   def test_dataloader(self):
     # Return the test dataloader
     return DataLoader(self.test_ds,
                       batch_size=self.batch_size,
                       num_workers=self.num_workers,
-                      shuffle=False)
+                      shuffle=False,
+                      pin_memory=True)
+  

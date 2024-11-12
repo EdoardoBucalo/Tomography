@@ -1,0 +1,8 @@
+*.sav
+*.npy
+__pycache__
+TB_logs
+wandb
+*.png
+*.pdf
+*.DS_Store

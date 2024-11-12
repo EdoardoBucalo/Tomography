@@ -14,8 +14,7 @@ def main():
     model = TomoModel(
         inputsize=config.INPUTSIZE,
         learning_rate=config.LEARNING_RATE,
-        outputsize=config.OUTPUTSIZE
-        
+        outputsize=config.OUTPUTSIZE,
     )
 
     dm = TomographyDataModule(
@@ -32,6 +31,7 @@ def main():
         min_epochs=1,
         max_epochs=config.NUM_EPOCHS,
         precision=config.PRECISION,
+        enable_progress_bar=True, # Set to True to enable progress bar
         callbacks=[PrintingCallback(),
                    SaveBest(monitor="val_loss", logger=logger),
                    EarlyStopping(monitor="val_loss"),
