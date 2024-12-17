@@ -31,7 +31,34 @@ class TomoModel(L.LightningModule):
     self.r2 = torchmetrics.R2Score()  # Define R2 score metric, using the multioutput parameter the metric will return an array of R2 scores for each output
     self.md = torchmetrics.MinkowskiDistance(p=4)  # Define F1 score metric
     self.training_step_outputs = []  # Initialize an empty list to store training step outputs
-    
+  
+ def _get_activation(self):
+    # Dizionario per attivazioni senza parametri
+    activation_dict = {
+        'relu': nn.ReLU(),
+        'sigmoid': nn.Sigmoid(),
+        'tanh': nn.Tanh(),
+    }
+
+    # Gestione per ReLU, Sigmoid, Tanh senza parametri
+    if self.activation_type == 'ReLU':
+        return nn.ReLU()
+    elif self.activation_type == 'Sigmoid':
+        return nn.Sigmoid()
+    elif self.activation_type == 'Tanh':
+        return nn.Tanh()
+
+    # Gestione per LeakyReLU con parametro
+    elif self.activation_type.startswith('LeakyReLU'):
+        # Estrai il parametro (ad esempio 0.01)
+        start_idx = self.activation_type.find('(') + 1
+        end_idx = self.activation_type.find(')')
+        
+        # Se ci sono parentesi, estrai il numero
+        if start_idx != -1 and end_idx != -1:
+            alpha = float(self.activation_type[start_idx:end_idx])
+        else:
+            raise ValueError(f"Unsupported activation function: {self.activation_type}")
   def forward(self, x):
     x = self.net(x)  # Pass the input through the network
     return x
