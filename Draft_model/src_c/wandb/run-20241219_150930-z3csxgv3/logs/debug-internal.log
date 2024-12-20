@@ -1,0 +1,18 @@
+{"time":"2024-12-19T15:09:30.51164+01:00","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-19T15:09:30.511684+01:00","level":"INFO","msg":"created symlink","path":"/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/wandb/run-20241219_150930-z3csxgv3/logs/debug-core.log"}
+{"time":"2024-12-19T15:09:30.635921+01:00","level":"INFO","msg":"created new stream","id":"z3csxgv3"}
+{"time":"2024-12-19T15:09:30.635966+01:00","level":"INFO","msg":"stream: started","id":"z3csxgv3"}
+{"time":"2024-12-19T15:09:30.636068+01:00","level":"INFO","msg":"sender: started","stream_id":"z3csxgv3"}
+{"time":"2024-12-19T15:09:30.636004+01:00","level":"INFO","msg":"handler: started","stream_id":{"value":"z3csxgv3"}}
+{"time":"2024-12-19T15:09:30.635979+01:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"z3csxgv3"}}
+{"time":"2024-12-19T15:09:30.98367+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-19T15:29:45.224867+01:00","level":"INFO","msg":"stream: closing","id":"z3csxgv3"}
+{"time":"2024-12-19T15:29:45.225141+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-19T15:29:45.226527+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-19T15:29:47.56973+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-19T15:29:47.786321+01:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"z3csxgv3"}}
+{"time":"2024-12-19T15:29:47.786377+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"z3csxgv3"}}
+{"time":"2024-12-19T15:29:47.786389+01:00","level":"INFO","msg":"sender: closed","stream_id":"z3csxgv3"}
+{"time":"2024-12-19T15:29:47.78646+01:00","level":"INFO","msg":"stream: closed","id":"z3csxgv3"}
+{"time":"2024-12-19T15:29:47.787171+01:00","level":"ERROR","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"output_type":1,"timestamp":{"seconds":1734618585,"nanos":223901000},"line":"\rEpoch 8:  10%| | 172/1734 [00:12<01:53, 13.79it/s, v_num=xgv3, val_loss=0.00797, val_mae=0.040"}},"control":{"connection_id":"127.0.0.1:62333"},"_info":{"stream_id":"z3csxgv3"}}}}
+{"time":"2024-12-19T15:29:47.79232+01:00","level":"ERROR","msg":"runwork: ignoring record after close","work":{"Record":{"RecordType":{"OutputRaw":{"output_type":1,"timestamp":{"seconds":1734618585,"nanos":224135000},"line":"\rEpoch 8:  10%| | 172/1734 [00:12<01:53, 13.79it/s, v_num=xgv3, val_loss=0.00797, val_mae=0.040"}},"control":{"connection_id":"127.0.0.1:62333"},"_info":{"stream_id":"z3csxgv3"}}}}

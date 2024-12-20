@@ -1,0 +1,59 @@
+_wandb:
+    value:
+        cli_version: 0.18.5
+        m: []
+        python_version: 3.11.0
+        t:
+            "1":
+                - 1
+                - 9
+                - 11
+                - 49
+                - 55
+                - 103
+                - 106
+            "2":
+                - 1
+                - 9
+                - 11
+                - 49
+                - 55
+                - 103
+                - 106
+            "3":
+                - 1
+                - 2
+                - 23
+                - 55
+            "4": 3.11.0
+            "5": 0.18.5
+            "6": 4.45.2
+            "8":
+                - 5
+            "12": 0.18.5
+            "13": darwin-arm64
+ACCELERATOR:
+    value: gpu
+BATCH_SIZE:
+    value: 32
+DATA_DIR:
+    value: ../data/
+DEVICES:
+    value:
+        - 0
+FILE_NAME:
+    value: data_clean.npy
+INPUTSIZE:
+    value: 92
+LEARNING_RATE:
+    value: 0.0001
+NUM_EPOCHS:
+    value: 100
+NUM_WORKERS:
+    value: 0
+OUTPUTSIZE:
+    value: 1
+PRECISION:
+    value: 16-mixed
+optimizer:
+    value: adam

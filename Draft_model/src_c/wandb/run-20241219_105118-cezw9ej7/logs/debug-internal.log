@@ -1,0 +1,17 @@
+{"time":"2024-12-19T10:51:18.426446+01:00","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-19T10:51:18.426494+01:00","level":"INFO","msg":"created symlink","path":"/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/wandb/run-20241219_105118-cezw9ej7/logs/debug-core.log"}
+{"time":"2024-12-19T10:51:18.550123+01:00","level":"INFO","msg":"created new stream","id":"cezw9ej7"}
+{"time":"2024-12-19T10:51:18.550169+01:00","level":"INFO","msg":"stream: started","id":"cezw9ej7"}
+{"time":"2024-12-19T10:51:18.550293+01:00","level":"INFO","msg":"sender: started","stream_id":"cezw9ej7"}
+{"time":"2024-12-19T10:51:18.550343+01:00","level":"INFO","msg":"handler: started","stream_id":{"value":"cezw9ej7"}}
+{"time":"2024-12-19T10:51:18.550196+01:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"cezw9ej7"}}
+{"time":"2024-12-19T10:51:19.0898+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-19T10:51:19.532945+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-19T10:51:19.533361+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-19T10:51:20.537863+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"updating run config","runtime_seconds":0.125723792}],"total_operations":1}}
+{"time":"2024-12-19T10:51:22.495373+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-19T10:51:23.768371+01:00","level":"INFO","msg":"stream: closing","id":"cezw9ej7"}
+{"time":"2024-12-19T10:51:23.768414+01:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"cezw9ej7"}}
+{"time":"2024-12-19T10:51:23.768468+01:00","level":"INFO","msg":"sender: closed","stream_id":"cezw9ej7"}
+{"time":"2024-12-19T10:51:23.768452+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"cezw9ej7"}}
+{"time":"2024-12-19T10:51:23.76897+01:00","level":"INFO","msg":"stream: closed","id":"cezw9ej7"}

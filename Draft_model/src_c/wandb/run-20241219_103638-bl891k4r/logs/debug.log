@@ -1,0 +1,65 @@
+2024-12-19 10:36:38,670 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Current SDK version is 0.18.5
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Configure stats pid to 10521
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Loading settings from /Users/edoardo/.config/wandb/settings
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Loading settings from /Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/wandb/settings
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Applying setup settings: {'mode': None, '_disable_service': None}
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'Draft_model/src_c/train_c.py', 'program_abspath': '/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/train_c.py', 'program': '/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/train_c.py'}
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_init.py:_log_setup():534] Logging user logs to /Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/wandb/run-20241219_103638-bl891k4r/logs/debug.log
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_init.py:_log_setup():535] Logging internal logs to /Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/wandb/run-20241219_103638-bl891k4r/logs/debug-internal.log
+2024-12-19 10:36:38,671 INFO    MainThread:10521 [wandb_init.py:init():621] calling init triggers
+2024-12-19 10:36:38,673 INFO    MainThread:10521 [wandb_init.py:init():628] wandb.init called with sweep_config: {}
+config: {'__name__': 'config', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x1014681d0>, '__spec__': ModuleSpec(name='config', loader=<_frozen_importlib_external.SourceFileLoader object at 0x1014681d0>, origin='/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/config.py'), '__file__': '/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/config.py', '__cached__': '/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/__pycache__/config.cpython-311.pyc', '__builtins__': {'__name__': 'builtins', '__doc__': "Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil' object; Ellipsis represents `...' in slices.", '__package__': '', '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': ModuleSpec(name='builtins', loader=<class '_frozen_importlib.BuiltinImporter'>, origin='built-in'), '__build_class__': <built-in function __build_class__>, '__import__': <built-in function __import__>, 'abs': <built-in function abs>, 'all': <built-in function all>, 'any': <built-in function any>, 'ascii': <built-in function ascii>, 'bin': <built-in function bin>, 'breakpoint': <built-in function breakpoint>, 'callable': <built-in function callable>, 'chr': <built-in function chr>, 'compile': <built-in function compile>, 'delattr': <built-in function delattr>, 'dir': <built-in function dir>, 'divmod': <built-in function divmod>, 'eval': <built-in function eval>, 'exec': <built-in function exec>, 'format': <built-in function format>, 'getattr': <built-in function getattr>, 'globals': <built-in function globals>, 'hasattr': <built-in function hasattr>, 'hash': <built-in function hash>, 'hex': <built-in function hex>, 'id': <built-in function id>, 'input': <built-in function input>, 'isinstance': <built-in function isinstance>, 'issubclass': <built-in function issubclass>, 'iter': <built-in function iter>, 'aiter': <built-in function aiter>, 'len': <built-in function len>, 'locals': <built-in function locals>, 'max': <built-in function max>, 'min': <built-in function min>, 'next': <built-in function next>, 'anext': <built-in function anext>, 'oct': <built-in function oct>, 'ord': <built-in function ord>, 'pow': <built-in function pow>, 'print': <built-in function print>, 'repr': <built-in function repr>, 'round': <built-in function round>, 'setattr': <built-in function setattr>, 'sorted': <built-in function sorted>, 'sum': <built-in function sum>, 'vars': <built-in function vars>, 'None': None, 'Ellipsis': Ellipsis, 'NotImplemented': NotImplemented, 'False': False, 'True': True, 'bool': <class 'bool'>, 'memoryview': <class 'memoryview'>, 'bytearray': <class 'bytearray'>, 'bytes': <class 'bytes'>, 'classmethod': <class 'classmethod'>, 'complex': <class 'complex'>, 'dict': <class 'dict'>, 'enumerate': <class 'enumerate'>, 'filter': <class 'filter'>, 'float': <class 'float'>, 'frozenset': <class 'frozenset'>, 'property': <class 'property'>, 'int': <class 'int'>, 'list': <class 'list'>, 'map': <class 'map'>, 'object': <class 'object'>, 'range': <class 'range'>, 'reversed': <class 'reversed'>, 'set': <class 'set'>, 'slice': <class 'slice'>, 'staticmethod': <class 'staticmethod'>, 'str': <class 'str'>, 'super': <class 'super'>, 'tuple': <class 'tuple'>, 'type': <class 'type'>, 'zip': <class 'zip'>, '__debug__': True, 'BaseException': <class 'BaseException'>, 'BaseExceptionGroup': <class 'BaseExceptionGroup'>, 'Exception': <class 'Exception'>, 'GeneratorExit': <class 'GeneratorExit'>, 'KeyboardInterrupt': <class 'KeyboardInterrupt'>, 'SystemExit': <class 'SystemExit'>, 'ArithmeticError': <class 'ArithmeticError'>, 'AssertionError': <class 'AssertionError'>, 'AttributeError': <class 'AttributeError'>, 'BufferError': <class 'BufferError'>, 'EOFError': <class 'EOFError'>, 'ImportError': <class 'ImportError'>, 'LookupError': <class 'LookupError'>, 'MemoryError': <class 'MemoryError'>, 'NameError': <class 'NameError'>, 'OSError': <class 'OSError'>, 'ReferenceError': <class 'ReferenceError'>, 'RuntimeError': <class 'RuntimeError'>, 'StopAsyncIteration': <class 'StopAsyncIteration'>, 'StopIteration': <class 'StopIteration'>, 'SyntaxError': <class 'SyntaxError'>, 'SystemError': <class 'SystemError'>, 'TypeError': <class 'TypeError'>, 'ValueError': <class 'ValueError'>, 'Warning': <class 'Warning'>, 'FloatingPointError': <class 'FloatingPointError'>, 'OverflowError': <class 'OverflowError'>, 'ZeroDivisionError': <class 'ZeroDivisionError'>, 'BytesWarning': <class 'BytesWarning'>, 'DeprecationWarning': <class 'DeprecationWarning'>, 'EncodingWarning': <class 'EncodingWarning'>, 'FutureWarning': <class 'FutureWarning'>, 'ImportWarning': <class 'ImportWarning'>, 'PendingDeprecationWarning': <class 'PendingDeprecationWarning'>, 'ResourceWarning': <class 'ResourceWarning'>, 'RuntimeWarning': <class 'RuntimeWarning'>, 'SyntaxWarning': <class 'SyntaxWarning'>, 'UnicodeWarning': <class 'UnicodeWarning'>, 'UserWarning': <class 'UserWarning'>, 'BlockingIOError': <class 'BlockingIOError'>, 'ChildProcessError': <class 'ChildProcessError'>, 'ConnectionError': <class 'ConnectionError'>, 'FileExistsError': <class 'FileExistsError'>, 'FileNotFoundError': <class 'FileNotFoundError'>, 'InterruptedError': <class 'InterruptedError'>, 'IsADirectoryError': <class 'IsADirectoryError'>, 'NotADirectoryError': <class 'NotADirectoryError'>, 'PermissionError': <class 'PermissionError'>, 'ProcessLookupError': <class 'ProcessLookupError'>, 'TimeoutError': <class 'TimeoutError'>, 'IndentationError': <class 'IndentationError'>, 'IndexError': <class 'IndexError'>, 'KeyError': <class 'KeyError'>, 'ModuleNotFoundError': <class 'ModuleNotFoundError'>, 'NotImplementedError': <class 'NotImplementedError'>, 'RecursionError': <class 'RecursionError'>, 'UnboundLocalError': <class 'UnboundLocalError'>, 'UnicodeError': <class 'UnicodeError'>, 'BrokenPipeError': <class 'BrokenPipeError'>, 'ConnectionAbortedError': <class 'ConnectionAbortedError'>, 'ConnectionRefusedError': <class 'ConnectionRefusedError'>, 'ConnectionResetError': <class 'ConnectionResetError'>, 'TabError': <class 'TabError'>, 'UnicodeDecodeError': <class 'UnicodeDecodeError'>, 'UnicodeEncodeError': <class 'UnicodeEncodeError'>, 'UnicodeTranslateError': <class 'UnicodeTranslateError'>, 'ExceptionGroup': <class 'ExceptionGroup'>, 'EnvironmentError': <class 'OSError'>, 'IOError': <class 'OSError'>, 'open': <built-in function open>, 'quit': Use quit() or Ctrl-D (i.e. EOF) to exit, 'exit': Use exit() or Ctrl-D (i.e. EOF) to exit, 'copyright': Copyright (c) 2001-2022 Python Software Foundation.
+All Rights Reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved., 'credits':     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
+    for supporting Python development.  See www.python.org for more information., 'license': Type license() to see the full license text, 'help': Type help() for interactive help, or help(object) for help about object., '__pybind11_internals_v4_clang_libcpp_cxxabi1002__': <capsule object NULL at 0x102ee4900>}, 'INPUTSIZE': 92, 'OUTPUTSIZE': 1, 'LEARNING_RATE': 0.0008654690786896991, 'BATCH_SIZE': 32, 'NUM_EPOCHS': 100, 'OPTIMIZER': 'adam', 'fc_layer_size': 64, 'n_layer': 3, 'activation_function': 'ReLU', 'DATA_DIR': '../data/', 'FILE_NAME': 'data_clean.npy', 'NUM_WORKERS': 0, 'ACCELERATOR': 'gpu', 'DEVICES': [0], 'PRECISION': '16-mixed'}
+2024-12-19 10:36:38,673 INFO    MainThread:10521 [wandb_init.py:init():671] starting backend
+2024-12-19 10:36:38,673 INFO    MainThread:10521 [wandb_init.py:init():675] sending inform_init request
+2024-12-19 10:36:38,676 INFO    MainThread:10521 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2024-12-19 10:36:38,676 INFO    MainThread:10521 [wandb_init.py:init():688] backend started and connected
+2024-12-19 10:36:38,684 INFO    MainThread:10521 [wandb_init.py:init():783] updated telemetry
+2024-12-19 10:36:38,731 INFO    MainThread:10521 [wandb_init.py:init():816] communicating run to backend with 90.0 second timeout
+2024-12-19 10:36:38,732 ERROR   MainThread:10521 [wandb_init.py:init():1266] error in wandb.init()
+Traceback (most recent call last):
+  File "/Users/edoardo/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 1256, in init
+    return wi.init()
+           ^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 818, in init
+    run_init_handle = backend.interface.deliver_run(run)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 845, in deliver_run
+    run_record = self._make_run(run)
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 157, in _make_run
+    self._make_config(data=config_dict, obj=proto_run.config)
+  File "/Users/edoardo/anaconda3/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 139, in _make_config
+    update.value_json = json_dumps_safer(json_friendly(v)[0])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/site-packages/wandb/util.py", line 831, in json_dumps_safer
+    return dumps(obj, cls=WandBJSONEncoder, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/site-packages/wandb/util.py", line 782, in default
+    return json.JSONEncoder.default(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/edoardo/anaconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ellipsis is not JSON serializable
+2024-12-19 10:36:38,904 WARNING MsgRouterThr:10521 [router.py:message_loop():77] message_loop has been closed

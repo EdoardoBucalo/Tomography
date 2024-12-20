@@ -9,70 +9,109 @@ import utils
 
 
 class TomoModel(L.LightningModule):
-  def __init__(self, inputsize, learning_rate, outputsize,fc_layer_size=128):
+  def __init__(self, inputsize, learning_rate, outputsize,fc_layer_size=124, activation='ReLU'):
     super().__init__()
     self.lr = learning_rate
-    self.fc_layer_size = fc_layer_size  # Aggiungi il parametro per la dimensione del layer fully-connected
+    self.inputsize = inputsize
+    self.outputsize= outputsize
+    self.fc_layer_size = fc_layer_size
+    self.activation_type = activation
+    self.layers = nn.ModuleList()
+    
+    #######
+    ######
+    # Primo layer di input
+    self.layers.append(nn.Linear(inputsize, fc_layer_size[0]))
+    self.activations=nn.ModuleList([self._get_activation()])
+    
+    # Aggiungere layer successivi
+    self.hidden_layers=nn.ModuleList()
+    for i in range(len(fc_layer_size)-1):
+        self.layers.append(nn.Linear(fc_layer_size[i], fc_layer_size[i+1]))
+        self.activations.append(self._get_activation())
 
-    #self.layersize = 512
-    self.net = nn.Sequential(
-        nn.Linear(inputsize, fc_layer_size),  # Define a linear layer with input size and output size
-        nn.ReLU(),  # Apply ReLU activation function
-        nn.Linear(fc_layer_size, fc_layer_size),  # Define another linear layer
-        nn.ReLU(),  # Apply ReLU activation function
-        nn.Linear(fc_layer_size, fc_layer_size),  # Define another linear layer
-        nn.ReLU(),  # Apply ReLU activation function
-        nn.Linear(fc_layer_size, outputsize)  # Define Final linear layer with output size
-    )
+    # Ultimo layer di output
+    self.output_layer = nn.Linear(fc_layer_size[-1], outputsize)
+    #######
+    ######
+    
     self.loss_rate = 0.2  # Define the loss rate
-    self.loss_fn = nn.MSELoss()  # Define the loss function as CrossEntropyLoss
+    self.loss_fn = nn.L1Loss()  # Define the loss function as CrossEntropyLoss
     self.best_val_loss = torch.tensor(float('inf'))  # Initialize the best validation loss
+    self.mse =torchmetrics.MeanSquaredError()
     self.mae = torchmetrics.MeanAbsoluteError() # Define Root Mean Squared Error metric
     self.r2 = torchmetrics.R2Score()  # Define R2 score metric, using the multioutput parameter the metric will return an array of R2 scores for each output
     self.md = torchmetrics.MinkowskiDistance(p=4)  # Define F1 score metric
     self.training_step_outputs = []  # Initialize an empty list to store training step outputs
-  
- def _get_activation(self):
-    # Dizionario per attivazioni senza parametri
-    activation_dict = {
-        'relu': nn.ReLU(),
-        'sigmoid': nn.Sigmoid(),
-        'tanh': nn.Tanh(),
-    }
-
-    # Gestione per ReLU, Sigmoid, Tanh senza parametri
-    if self.activation_type == 'ReLU':
-        return nn.ReLU()
-    elif self.activation_type == 'Sigmoid':
-        return nn.Sigmoid()
-    elif self.activation_type == 'Tanh':
-        return nn.Tanh()
-
-    # Gestione per LeakyReLU con parametro
-    elif self.activation_type.startswith('LeakyReLU'):
-        # Estrai il parametro (ad esempio 0.01)
-        start_idx = self.activation_type.find('(') + 1
-        end_idx = self.activation_type.find(')')
+    
+  def _get_activation(self):
+        # Dizionario per attivazioni senza parametri
+        activation_dict = {
+            'ReLU': nn.ReLU(),
+            'Sigmoid': nn.Sigmoid(),
+            'Tanh': nn.Tanh(),
+            'Softmax': nn.Softmax(dim=1),  # Specifica `dim=1` per Softmax
+            'Swish': nn.SiLU(),  # Swish in PyTorch è implementato come SiLU
+            'GELU': nn.GELU(),
+            'ELU': nn.ELU()
+        }
         
-        # Se ci sono parentesi, estrai il numero
-        if start_idx != -1 and end_idx != -1:
-            alpha = float(self.activation_type[start_idx:end_idx])
+
+        if self.activation_type == 'ReLU':
+            return nn.ReLU()
+        elif self.activation_type == 'Sigmoid':
+            return nn.Sigmoid()
+        elif self.activation_type == 'Tanh':
+            return nn.Tanh()
+       
+           
+        elif self.activation_type == 'Softmax':
+            return nn.Softmax(dim=1)  # Assicurati di impostare il parametro `dim` per Softmax
+        elif self.activation_type == 'Swish':
+            return nn.SiLU()  # Swish è spesso implementato come SiLU (Sigmoid Linear Unit)
+        elif self.activation_type == 'GELU':
+            return nn.GELU()
+        elif self.activation_type == 'ELU':
+            return nn.ELU()
+        elif self.activation_type.startswith('LeakyReLU'):
+            # Estrai il parametro (ad esempio 0.01)
+            start_idx = self.activation_type.find('(') + 1
+            end_idx = self.activation_type.find(')')
+            
+            if start_idx != -1 and end_idx != -1:
+                alpha = float(self.activation_type[start_idx:end_idx])
+            else:
+                alpha = 0.01  # Imposta il valore predefinito se non specificato
+
+            return nn.LeakyReLU(alpha)
         else:
             raise ValueError(f"Unsupported activation function: {self.activation_type}")
+
+    
+  
   def forward(self, x):
-    x = self.net(x)  # Pass the input through the network
-    return x
+        # Passaggio attraverso i layer definiti
+        for layer, activation in zip(self.layers, self.activations):
+            x = activation(layer(x))  # Applica il layer e l'attivazione
+
+        # Passaggio finale attraverso il layer di output
+        x = self.output_layer(x)
+        return x
   
   def training_step(self, batch, batch_idx):
     loss, y_hat, y = self._common_step(batch, batch_idx)  # Compute loss, y_hat (prediction), and target using a common step function
     mae = self.mae(y_hat, y)  # Compute mae using the y_hat (prediction) and target
+    mse = self.mse(y_hat,y)
+    
     r2 = self.r2(y_hat.view(-1), y.view(-1))  # Compute r2score using the y_hat (prediction) and target
     md = self.md(y_hat, y)  # Compute md using the y_hat (prediction) and target
-    self.training_step_outputs.append(loss)  # Append the loss to the training step outputs list
+    mse = self.mse(y_hat, y)
+    self.training_step_outputs.append(loss.detach().cpu())  # Append the loss to the training step outputs list
     self.log_dict({'train_loss': loss,
                    'train_mae': mae,
                    'train_r2': r2,
-                   'train_md': md},
+                   'train_md': md,
+                   'train_mse':mse},
                    on_step=False, on_epoch=True, prog_bar=True
                    )  # Log the training loss, mae, and F1 score
     return {"loss": loss, "preds": y_hat, "target": y}
@@ -83,10 +122,12 @@ class TomoModel(L.LightningModule):
     mae = self.mae(y_hat, y)  # Compute mae using the y_hat (prediction) and target
     r2 = self.r2(y_hat.view(-1), y.view(-1))  # Compute r2score using the y_hat (prediction) and target
     md = self.md(y_hat, y)  # Compute md using the y_hat (prediction) and target
+    mse= self.mse(y_hat, y)
     self.log_dict({'val_loss': loss,
                    'val_mae': mae,
                    'val_r2': r2,
-                   'val_md': md},
+                   'val_md': md,
+                   'val_mse':mse},
                    on_step=False, on_epoch=True, prog_bar=True
                    )  # Log the validation loss, mae, and F1 score
     return loss
@@ -96,10 +137,12 @@ class TomoModel(L.LightningModule):
     mae = self.mae(y_hat, y)  # Compute mae using the y_hat (prediction) and target
     r2 = self.r2(y_hat.view(-1), y.view(-1))  # Compute r2score using the y_hat (prediction) and target
     md = self.md(y_hat, y)  # Compute md using the y_hat (prediction) and target
+    mse = self.mse(y_hat, y)
     self.log_dict({'test_loss': loss,
                    'test_mae': mae,
                    'test_r2': r2,
-                   'test_md': md},
+                   'test_md': md,
+                   'test_mse':mse},
                    on_step=False, on_epoch=True, prog_bar=True
                    )  # Log the test loss, mae, and F1 score
     return loss

@@ -1,5 +1,5 @@
 # main.py
-from model import TomoModel  # Importa il modello definito nel file model.py
+from model_c import TomoModel  # Importa il modello definito nel file model.py
 from torchsummary import summary
 import config
 
@@ -11,18 +11,25 @@ model = TomoModel(
                 feature_map_size=(25, 25),
                 
                 
-                kernel_size=4,
-                k0_size=4,
-                k1_size=4,
-                k2_size=5,
-                kf_size=6,
                 
+                k_0=3,
+                k_1=4,
+                k_2=4,
+
+                k_5=4,
+                k_6=5,
+                k_7=6,
+                k_8=6,
                 
-                padding=1,
-                stride=1,
-                stride2=2,
-                output_padding=0
-               
+                s_1=2,
+                s_2=1,
+                s_3=1,
+
+                s_6=2,
+                s_7=1,
+                s_8=1,
+                s_9=1,
+                
                 
                 )
 

@@ -42,7 +42,7 @@ def main(W_config=None):
         wandb_logger = WandbLogger(project="my_Tomo_model")
         
         # Imposta il logger per TensorBoard
-        logger = TensorBoardLogger("TB_logs", name="my_Tomo_model")
+        ©
 
         # Carica il modulo dati completo
         dm = TomographyDataModule(
@@ -90,7 +90,7 @@ def main(W_config=None):
 
             # Log dei risultati per fold
             wandb.log({
-                "fold": fold+1,
+                
                 "val_loss": trainer.callback_metrics.get("val_loss", None),
                 "train_loss": trainer.callback_metrics.get("train_loss", None) })
                

@@ -1,0 +1,39 @@
+{
+  "os": "macOS-15.2-arm64-arm-64bit",
+  "python": "3.11.0",
+  "startedAt": "2024-12-19T14:09:30.510782Z",
+  "program": "/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/train_c.py",
+  "codePath": "Draft_model/src_c/train_c.py",
+  "git": {
+    "remote": "https://github.com/EdoardoBucalo/Tomography.git",
+    "commit": "639f6ae2312f76e4c69d93bf07c11de774476b00"
+  },
+  "email": "edoardobucalo1@icloud.com",
+  "root": "/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c",
+  "host": "MacBook-Pro-di-Edoardo-4.local",
+  "username": "edoardo",
+  "executable": "/Users/edoardo/anaconda3/bin/python",
+  "codePathLocal": "train_c.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "413457154048"
+    }
+  },
+  "memory": {
+    "total": "8589934592"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 8
+  },
+  "apple": {
+    "name": "Apple M1",
+    "ecpuCores": 4,
+    "pcpuCores": 4,
+    "gpuCores": 8,
+    "memoryGb": 8
+  }
+}

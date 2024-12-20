@@ -1,0 +1,25 @@
+{"time":"2024-12-19T11:01:45.516114+01:00","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-19T11:01:45.516171+01:00","level":"INFO","msg":"created symlink","path":"/Users/edoardo/Desktop/Thesis/code/Tomography/Draft_model/src_c/wandb/run-20241219_110145-b9wtsyot/logs/debug-core.log"}
+{"time":"2024-12-19T11:01:45.632903+01:00","level":"INFO","msg":"created new stream","id":"b9wtsyot"}
+{"time":"2024-12-19T11:01:45.63294+01:00","level":"INFO","msg":"stream: started","id":"b9wtsyot"}
+{"time":"2024-12-19T11:01:45.63309+01:00","level":"INFO","msg":"sender: started","stream_id":"b9wtsyot"}
+{"time":"2024-12-19T11:01:45.632979+01:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"b9wtsyot"}}
+{"time":"2024-12-19T11:01:45.633062+01:00","level":"INFO","msg":"handler: started","stream_id":{"value":"b9wtsyot"}}
+{"time":"2024-12-19T11:01:46.101322+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-19T11:52:01.82884+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": dial tcp 35.186.228.49:443: connect: network is unreachable"}
+{"time":"2024-12-19T12:24:01.917278+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": dial tcp 35.186.228.49:443: connect: network is unreachable"}
+{"time":"2024-12-19T13:27:02.128569+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": dial tcp 35.186.228.49:443: connect: network is unreachable"}
+{"time":"2024-12-19T13:58:32.178003+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": dial tcp 35.186.228.49:443: connect: network is unreachable"}
+{"time":"2024-12-19T14:17:17.261114+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": dial tcp 35.186.228.49:443: connect: network is unreachable"}
+{"time":"2024-12-19T14:35:18.30218+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": read tcp 192.168.1.4:60274->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2024-12-19T14:55:47.299059+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": read tcp 192.168.1.4:61330->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2024-12-19T15:06:47.351662+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/edoardobucalo1-universit-di-padova/my_Tomo_model_CNN/b9wtsyot/file_stream\": dial tcp 35.186.228.49:443: connect: network is unreachable"}
+{"time":"2024-12-19T15:09:23.648806+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-19T15:09:23.651063+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-19T15:09:24.661647+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-summary.json","runtime_seconds":0.369639083,"progress":"18.6KB/18.6KB"},{"desc":"saving job artifact","runtime_seconds":0.366821417},{"desc":"uploading config.yaml","runtime_seconds":0.161627834,"progress":"1.0KB/1.0KB"},{"desc":"uploading output.log","runtime_seconds":0.161596042,"progress":"6.1KB/6.1KB"}],"total_operations":4}}
+{"time":"2024-12-19T15:09:26.360875+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-19T15:09:27.693696+01:00","level":"INFO","msg":"stream: closing","id":"b9wtsyot"}
+{"time":"2024-12-19T15:09:27.693723+01:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"b9wtsyot"}}
+{"time":"2024-12-19T15:09:27.693744+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"b9wtsyot"}}
+{"time":"2024-12-19T15:09:27.693761+01:00","level":"INFO","msg":"sender: closed","stream_id":"b9wtsyot"}
+{"time":"2024-12-19T15:09:27.693822+01:00","level":"INFO","msg":"stream: closed","id":"b9wtsyot"}

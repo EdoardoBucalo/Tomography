@@ -4,17 +4,34 @@ import numpy as np
 import os
 from model import TomoModel
 from dataset import TomographyDataModule
-import config
+from train1 import sweep_config
 import matplotlib.pyplot as plt
 from scipy.special import j0, j1, jn_zeros
 from utils import compute_bessel_n_mesh
 import time
+class SweepConfig:
+    def __init__(self, sweep_config):
+        self.INPUTSIZE = sweep_config['parameters']['INPUTSIZE']['value']
+        self.OUTPUTSIZE = sweep_config['parameters']['OUTPUTSIZE']['value']
+        self.DATA_DIR = sweep_config['parameters']['DATA_DIR']['value']
+        self.FILE_NAME = sweep_config['parameters']['FILE_NAME']['value']
+        self.NUM_WORKERS = sweep_config['parameters']['NUM_WORKERS']['value']
+        self.ACCELERATOR = sweep_config['parameters']['ACCELERATOR']['value']
+        self.DEVICES = sweep_config['parameters']['DEVICES']['value']
+        self.PRECISION = sweep_config['parameters']['PRECISION']['value']
+        self.BATCH_SIZE = sweep_config['parameters']['batch_size']['values'][0]
+        self.EPOCHS = sweep_config['parameters']['epochs']['value']
+        self.fc_layer_size = sweep_config['parameters']['fc_layer_size']['values'][0]
+        self.ACTIVATION_FUNCTION = sweep_config['parameters']['activation_function']['values'][0]
+        self.LEARNING_RATE = sweep_config['parameters']['learning_rate']['values'][0]
+        self.OPTIMIZER = sweep_config['parameters']['optimizer']['values'][0]
+config = SweepConfig(sweep_config)
+def visualize(config):
 
-def visualize():
   # Define an instance of the model
-  model = TomoModel(config.INPUTSIZE, config.LEARNING_RATE, config.OUTPUTSIZE)
+  model = TomoModel(config.INPUTSIZE, config.LEARNING_RATE, config.OUTPUTSIZE,config.fc_layer_size)
   # Load the best model
-  version_num = 21
+  version_num = 1
   assert os.path.exists(f"TB_logs/my_Tomo_model/version_{version_num}/best_model.ckpt"), "The model does not exist"
   model.load_state_dict(torch.load(f"TB_logs/my_Tomo_model/version_{version_num}/best_model.ckpt",)['state_dict'])
   print(model)
@@ -166,7 +183,10 @@ def plot_maps_for_loop(em, em_hat, index, version_num):
   axs[2].set_title("Difference map")
   fig.colorbar(im2, ax=axs[2], shrink=0.6)
   # save the figure
-  fig.savefig(f"../plots/maps/version_{version_num}/maps_{index}.png")
+  directory = f"maps/version_{version_num}"
+  os.makedirs(directory, exist_ok=True)
+  file_path = os.path.join(directory, f"maps_{index}.png")
+  fig.savefig(file_path)
   plt.close()
 
 if __name__ == "__main__":
@@ -204,8 +224,8 @@ if __name__ == "__main__":
   # fig.savefig(f"maps_{version_num}.png")
   # plt.show()
   start = time.time()
-  model = TomoModel(config.INPUTSIZE, config.LEARNING_RATE, config.OUTPUTSIZE)
-  version_num = 41
+  model = TomoModel(config.INPUTSIZE, config.LEARNING_RATE, config.OUTPUTSIZE,config.fc_layer_size)
+  version_num = 0
   assert os.path.exists(f"TB_logs/my_Tomo_model/version_{version_num}/best_model.ckpt"), "The model does not exist"
   model.load_state_dict(torch.load(f"TB_logs/my_Tomo_model/version_{version_num}/best_model.ckpt",)['state_dict'])
 

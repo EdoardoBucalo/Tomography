@@ -1,0 +1,32 @@
+Using 16bit Automatic Mixed Precision (AMP)
+/Users/edoardo/anaconda3/lib/python3.11/site-packages/torch/amp/grad_scaler.py:132: UserWarning: torch.cuda.amp.GradScaler is enabled, but CUDA is not available.  Disabling.
+  warnings.warn(
+GPU available: True (mps), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/Users/edoardo/anaconda3/lib/python3.11/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+
+  | Name        | Type              | Params | Mode
+----------------------------------------------------------
+0 | fc_layer    | Linear            | 58.1 K | train
+1 | conv_layers | Sequential        | 79.6 K | train
+2 | loss_fn     | MSELoss           | 0      | train
+3 | mse         | MeanSquaredError  | 0      | train
+4 | mae         | MeanAbsoluteError | 0      | train
+5 | r2          | R2Score           | 0      | train
+6 | md          | MinkowskiDistance | 0      | train
+----------------------------------------------------------
+137 K     Trainable params
+0         Non-trainable params
+137 K     Total params
+0.551     Total estimated model params size (MB)
+16        Modules in train mode
+0         Modules in eval mode
+Training is starting!                                                                         
+/Users/edoardo/anaconda3/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+/Users/edoardo/anaconda3/lib/python3.11/site-packages/torch/amp/autocast_mode.py:266: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn(
+/Users/edoardo/anaconda3/lib/python3.11/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+Epoch 8:  10%| | 171/1734 [00:12<01:53, 13.80it/s, v_num=xgv3, val_loss=0.00797, val_mae=0.040
+                                                                                              
+[34m[1mwandb[0m: Ctrl + C detected. Stopping sweep.

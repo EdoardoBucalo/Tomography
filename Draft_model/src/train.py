@@ -15,6 +15,7 @@ def main():
         inputsize=config.INPUTSIZE,
         learning_rate=config.LEARNING_RATE,
         outputsize=config.OUTPUTSIZE,
+        fc_layer_size=config.fc_layer_size,
     )
 
     dm = TomographyDataModule(
@@ -22,6 +23,7 @@ def main():
         file_name=config.FILE_NAME,
         batch_size=config.BATCH_SIZE,
         num_workers=config.NUM_WORKERS,
+        
     )
 
     trainer = L.Trainer(
@@ -34,7 +36,7 @@ def main():
         enable_progress_bar=True, # Set to True to enable progress bar
         callbacks=[PrintingCallback(),
                    SaveBest(monitor="val_loss", logger=logger),
-                   EarlyStopping(monitor="val_loss"),
+                    #EarlyStopping(monitor="val_loss"),
                    ],
     )
 
